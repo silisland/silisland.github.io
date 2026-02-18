@@ -23,7 +23,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      # 关键修复：先安装 pnpm，再设置 Node
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
@@ -34,7 +33,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: pnpm  # 现在 pnpm 已存在，可以缓存了
+          cache: pnpm
 
       - name: Install dependencies
         run: pnpm install
@@ -56,3 +55,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
+        uses: actions/deploy-pages@v4
