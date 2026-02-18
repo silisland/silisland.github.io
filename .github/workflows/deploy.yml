@@ -2,10 +2,14 @@ name: 构建并部署到 Github Pages
 
 on:
   workflow_dispatch:
-  # push:
-  #   branches:
-  #     - 'main'
-  
+  push:
+    branches:
+      - 'main'
+
+permissions:
+  contents: write      # 需要写入权限推送到 gh-pages 分支
+  pages: write
+  id-token: write
 
 env:
   STORE_PATH: ''
@@ -43,25 +47,4 @@ jobs:
         run: |
           echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
-      - name: 配置 pnpm 缓存
-        uses: actions/cache@v3
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: 安装依赖
-        run: pnpm install --frozen-lockfile
-
-      - name: 构建
-        run: pnpm docs:build
-
-      - name: 推送到 gh-pages 分支
-        timeout-minutes: 10
-        with:
-          token: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: .vitepress/dist
-        uses: JamesIves/github-pages-deploy-action@v4
 
