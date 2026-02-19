@@ -7,7 +7,7 @@
 演示网站： https://nolebase-template.vercel.app
 
 做了如下改动
-- 精简仓库: 删除了原始的笔记，较大的文件，思源宋体文件， `.obsidian/`文件夹, `netlify`文件夹
+- 精简仓库: 删除了原始的笔记，jkkkkk较大的文件，思源宋体文件， `.obsidian/`文件夹, `netlify`文件夹
 
 
 ## 使用

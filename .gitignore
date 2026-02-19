@@ -2,6 +2,8 @@
 .Trash/
 .trash/
 .DS_Store
+.trae/
+
 
 # IDE related
 
@@ -48,3 +50,6 @@ components.d.ts
 # Logs
 
 *.log
+
+
+
