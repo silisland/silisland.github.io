@@ -139,7 +139,7 @@ export default defineConfig({
     footer: {
       message: '用 <span style="color: #e25555;">&#9829;</span> 撰写',
       copyright:
-        '<a class="footer-cc-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> © 2022-PRESENT Nólëbase 的创作者们',
+        '<a class="footer-cc-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> © 2022-PRESENT 技术博客',
     },
     search: {
       provider: 'local',
@@ -210,6 +210,7 @@ export default defineConfig({
     nav: [
       { text: '主页', link: '/' },
       { text: '笔记', link: '/笔记/' },
+      { text: '关于', link: '/关于' },
       { text: '最近更新', link: '/toc' },
     ],
     sidebar,
@@ -225,6 +226,7 @@ export default defineConfig({
       md.use(MarkdownItMathjax3)
       md.use(BiDirectionalLinks({
         dir: process.cwd(),
+        includesPatterns: ['**/*.md', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif', '**/*.svg', '**/*.webp'],
       }))
       md.use(UnlazyImages(), {
         imgElementTag: 'NolebaseUnlazyImg',
