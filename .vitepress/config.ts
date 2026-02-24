@@ -240,7 +240,7 @@ export default defineConfig({
     await buildEndGenerateOpenGraphImages({
       baseUrl: targetDomain,
       category: {
-        byLevel: 2,
+        byLevel: 1,
       },
     })(siteConfig)
   },
